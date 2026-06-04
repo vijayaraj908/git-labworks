@@ -13,7 +13,7 @@ Current CPU Load: ${CPU_LOAD}
 $(du -sh /home/* 2>/dev/null | sort -rh | head -n 5)"
     
     echo "Sending email alert for high CPU usage..."
-    echo -e "$MESSAGE" | mail -s "ALERT: System Resource Warning on $(hostname) (${CPU_LOAD}%)" "$ALERT_EMAIL" 
+    echo -e "$MESSAGE" | mail -s "ALERT: System CPU Overload Warning on $(hostname) (${CPU_LOAD}%)" "$ALERT_EMAIL" 
     
     logger -p local0.warn "CPU Overload alert: $PARTITION is at ${CPU_LOAD}%" 
 
